@@ -31,33 +31,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
- document.addEventListener("pointerup", function() {
-  if (!isDragging) return;
-
-  isDragging = false;
-  card.style.transition = "transform 0.3s ease";
-
-  if (moveX > 120) {
-    card.style.transform = "translateX(500px)";
-  } 
-  else if (moveX < -120) {
-    card.style.transform = "translateX(-500px)";
-  } 
-  else {
-    card.style.transform = "translateX(0px)";
-  }
-
-  like.style.opacity = 0;
-  nope.style.opacity = 0;
-});
+  document.addEventListener("pointerup", function() {
+    if (!isDragging) return;
 
     isDragging = false;
     card.style.transition = "transform 0.3s ease";
-    card.style.transform = "translateX(0px)";
+
+    if (moveX > 120) {
+      card.style.transform = "translateX(1000px)";
+    } 
+    else if (moveX < -120) {
+      card.style.transform = "translateX(-1000px)";
+    } 
+    else {
+      card.style.transform = "translateX(0px)";
+    }
 
     like.style.opacity = 0;
     nope.style.opacity = 0;
   });
 
 });
-
