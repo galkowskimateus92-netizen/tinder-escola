@@ -42,3 +42,26 @@ button {
   cursor: grab;
   transition: transform 0.3s ease;
 }
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.like, .nope {
+  position: absolute;
+  top: 20px;
+  font-size: 40px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.like {
+  left: 20px;
+  color: green;
+}
+
+.nope {
+  right: 20px;
+  color: red;
+}
