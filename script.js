@@ -1,43 +1,47 @@
-const card = document.querySelector(".card");
+document.addEventListener("DOMContentLoaded", function () {
 
-let startX = 0;
-let currentX = 0;
-let isDragging = false;
+  const card = document.querySelector(".card");
 
-card.addEventListener("mousedown", startDrag);
-card.addEventListener("touchstart", startDrag);
+  let startX = 0;
+  let currentX = 0;
+  let isDragging = false;
 
-document.addEventListener("mousemove", drag);
-document.addEventListener("touchmove", drag);
+  card.addEventListener("mousedown", startDrag);
+  card.addEventListener("touchstart", startDrag);
 
-document.addEventListener("mouseup", endDrag);
-document.addEventListener("touchend", endDrag);
+  document.addEventListener("mousemove", drag);
+  document.addEventListener("touchmove", drag);
 
-function startDrag(e) {
-  isDragging = true;
-  startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
-}
+  document.addEventListener("mouseup", endDrag);
+  document.addEventListener("touchend", endDrag);
 
-function drag(e) {
-  if (!isDragging) return;
-
-  currentX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
-  let moveX = currentX - startX;
-
-  card.style.transform = translateX(${moveX}px) rotate(${moveX * 0.05}deg);
-}
-
-function endDrag() {
-  if (!isDragging) return;
-  isDragging = false;
-
-  let moveX = currentX - startX;
-
-  if (moveX > 100) {
-    alert("❤️ Você curtiu!");
-  } else if (moveX < -100) {
-    alert("❌ Você não curtiu!");
+  function startDrag(e) {
+    isDragging = true;
+    startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
   }
 
-  card.style.transform = "translateX(0px)";
-}
+  function drag(e) {
+    if (!isDragging) return;
+
+    currentX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+    let moveX = currentX - startX;
+
+    card.style.transform = translateX(${moveX}px) rotate(${moveX * 0.05}deg);
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    let moveX = currentX - startX;
+
+    if (moveX > 100) {
+      alert("❤️ Você curtiu!");
+    } else if (moveX < -100) {
+      alert("❌ Você não curtiu!");
+    }
+
+    card.style.transform = "translateX(0px)";
+  }
+
+});
