@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
     isDragging = false;
     card.style.transition = "transform 0.3s ease";
 
-    if (moveX > 60) {
+    if (moveX > 100) {
       card.style.transform = "translateX(1000px)";
     } 
-    else if (moveX < -60) {
+    else if (moveX < -100) {
       card.style.transform = "translateX(-1000px)";
     } 
     else {
@@ -52,4 +52,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
